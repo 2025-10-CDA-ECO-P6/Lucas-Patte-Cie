@@ -40,3 +40,12 @@
 |id|string|Identifiant unique de la visite|"c001"
 |animal_id|string|Référence à l’animal|"a001"
 |date_visite|string (date)|Date de la visite|"2023-10-15"
+
+## Personnelle vétérinaire
+
+|Nom du champ|Type|Description|Exemple|
+|---|---|---|---|
+|id|string|Identifiant unique du propriétaire|"pv001"
+|nom|string|Nom du propriétaire|"Doe"
+|prenom|string|Prénom du propriétaire|"John"
+
