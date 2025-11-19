@@ -1,0 +1,146 @@
+{
+  "animaux": [
+    {
+      "id": "a001",
+      "nom": "Milo",
+      "espece": "Chat",
+      "race": "Siamois",
+      "date_naissance": "2019-05-12",
+      "poids": 4.2,
+      "proprietaire_id": "p001"
+    },
+    {
+      "id": "a002",
+      "nom": "Rex",
+      "espece": "Chien",
+      "race": "Berger Allemand",
+      "date_naissance": "2018-09-03",
+      "poids": 28.5,
+      "proprietaire_id": "p002"
+    },
+    {
+      "id": "a003",
+      "nom": "Luna",
+      "espece": "Chat",
+      "race": "European Shorthair",
+      "date_naissance": "2021-02-20",
+      "poids": 3.1,
+      "proprietaire_id": "p001"
+    },
+    {
+      "id": "a004",
+      "nom": "Tango",
+      "espece": "Lapin",
+      "race": "Nain",
+      "date_naissance": "2022-07-15",
+      "poids": 1.4,
+      "proprietaire_id": "p003"
+    }
+  ],
+  "proprietaires": [
+    {
+      "id": "p001",
+      "nom": "Dupont",
+      "prenom": "Claire",
+      "telephone": "0612345678",
+      "email": "claire.dupont@mail.com",
+      "adresse": "12 rue des Fleurs, Paris"
+    },
+    {
+      "id": "p002",
+      "nom": "Martin",
+      "prenom": "Luc",
+      "telephone": "0699988877",
+      "email": "luc.martin@mail.com",
+      "adresse": "5 avenue de Lyon, Marseille"
+    },
+    {
+      "id": "p003",
+      "nom": "Bernard",
+      "prenom": "Julie",
+      "telephone": "0677554433",
+      "email": "julie.bernard@mail.com",
+      "adresse": "44 boulevard Rivoli, Toulouse"
+    }
+  ],
+  "vaccins": [
+    {
+      "id": "v001",
+      "nom": "Rage",
+      "date_admin": "2023-11-01",
+      "prochain_rappel": "2024-11-01",
+      "animal_id": "a001"
+    },
+    {
+      "id": "v002",
+      "nom": "Carré",
+      "date_admin": "2023-06-15",
+      "prochain_rappel": "2024-06-15",
+      "animal_id": "a002"
+    },
+    {
+      "id": "v003",
+      "nom": "Typhus",
+      "date_admin": "2024-01-10",
+      "prochain_rappel": "2025-01-10",
+      "animal_id": "a003"
+    },
+    {
+      "id": "v004",
+      "nom": "Myxomatose",
+      "date_admin": "2023-04-18",
+      "prochain_rappel": "2024-04-18",
+      "animal_id": "a004"
+    },
+    {
+      "id": "v005",
+      "nom": "Leucose Féline",
+      "date_admin": "2023-09-20",
+      "prochain_rappel": "2024-09-20",
+      "animal_id": "a003"
+    }
+  ],
+  "visites_medicales": [
+    {
+      "id": "c001",
+      "animal_id": "a001",
+      "date_visite": "2023-10-15",
+      "veterinaire_id": "pv001"
+    },
+    {
+      "id": "c002",
+      "animal_id": "a002",
+      "date_visite": "2023-08-03",
+      "veterinaire_id": "pv002"
+    },
+    {
+      "id": "c003",
+      "animal_id": "a003",
+      "date_visite": "2024-02-12",
+      "veterinaire_id": "pv001"
+    },
+    {
+      "id": "c004",
+      "animal_id": "a004",
+      "date_visite": "2023-05-22",
+      "veterinaire_id": "pv003"
+    }
+  ],
+  "personnel_veterinaire": [
+    {
+      "id": "pv001",
+      "nom": "Doe",
+      "prenom": "John"
+    },
+    {
+      "id": "pv002",
+      "nom": "Legrand",
+      "prenom": "Marie"
+    },
+    {
+      "id": "pv003",
+      "nom": "Hoffman",
+      "prenom": "Eva"
+    }
+  ]
+}
