@@ -1,20 +1,20 @@
 import Link from "next/link";
 import { animaux } from "./data/data";
+import "./home.css"; // <-- ajout du fichier CSS
 
 export default function Home() {
   return (
-    <main style={{ padding: 20 }}>
+    <main>
       <h1>Liste des animaux</h1>
 
-      <ul>
+      <div className="cards-container">
         {animaux.map(animal => (
-          <li key={animal.id} style={{ marginBottom: 10 }}>
-            <Link href={`/animal/${animal.id}`}>
-              {animal.nom} — {animal.espece}
-            </Link>
-          </li>
+          <Link key={animal.id} href={`/animal/${animal.id}`} className="card">
+            <h2>{animal.nom}</h2>
+            <p>{animal.espece} — {animal.race}</p>
+          </Link>
         ))}
-      </ul>
+      </div>
     </main>
   );
 }
