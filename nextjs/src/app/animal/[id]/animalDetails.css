@@ -1,0 +1,117 @@
+.page-container {
+  padding: 20px;
+  background-color: #f2f3f5;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== Carte principale ===== */
+.animal-card {
+  background-color: #818AF9;
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Titre */
+.animal-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Pastilles d’infos */
+/* Pastille principale */
+.info-pill {
+  background: rgba(255, 255, 255, 0.5); 
+  border-radius: 15px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+/* Partie gauche (label) */
+.info-pill-left {
+  background: rgba(255, 255, 255, 0.75); 
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 12px;
+  min-width: 120px;     
+  text-align: center;
+}
+
+/* Partie droite (valeur) */
+.info-pill-right {
+  flex: 1;
+  color: #222;
+}
+
+/* ===== Boutons toggle ===== */
+.toggle-container {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.toggle-button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin: 0 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.toggle-button.active {
+  background: #818AF9;
+  color: white;
+}
+
+.toggle-button.inactive {
+  background: #e0e0e0;
+  color: #555;
+}
+
+/* ===== Contenu listes ===== */
+/* conteneur des cartes */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+/* une carte */
+.list-item {
+  color: #000;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 12px 16px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* chaque ligne d'info */
+.list-row {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.list-row strong {
+  padding: 4px 8px;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: underline;
+  color: #000;
+}
