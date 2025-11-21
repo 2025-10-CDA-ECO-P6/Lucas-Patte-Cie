@@ -1,62 +1,109 @@
 "use client";
 
 import { useState } from "react";
+import "./animalDetails.css";
 
-export default function AnimalDetailsClient({ animal, proprietaire, animalVaccins, animalVisites, personnel_veterinaire }) {
+export default function AnimalDetailsClient({
+  animal,
+  proprietaire,
+  animalVaccins,
+  animalVisites,
+  personnel_veterinaire
+}) {
   const [showVisites, setShowVisites] = useState(true);
 
   return (
-    <main style={{ padding: 20 }}>
-      <h1>{animal.nom}</h1>
-      <p><strong>Espèce :</strong> {animal.espece}</p>
-      <p><strong>Race :</strong> {animal.race}</p>
-      <p><strong>Date de naissance :</strong> {animal.date_naissance}</p>
-      <p><strong>Poids :</strong> {animal.poids} kg</p>
-      <p><strong>Propriétaire :</strong> {proprietaire ? `${proprietaire.nom} ${proprietaire.prenom}` : animal.proprietaire_id}</p>
+    <div className="page-container">
 
-      <div style={{ marginTop: 20 }}>
-        <button onClick={() => setShowVisites(true)} style={{ marginRight: 10 }}>Visites médicales</button>
-        <button onClick={() => setShowVisites(false)}>Vaccins</button>
+      {/* ===== Carte violet avec infos ===== */}
+      <div className="animal-card">
+        <h1 className="animal-title">{animal.nom}</h1>
+
+        <div className="info-pill">
+          <div className="info-pill-left">{/* label */}Espèce</div>
+          <div className="info-pill-right">{animal.espece}</div>
+        </div>
+
+        <div className="info-pill">
+          <div className="info-pill-left">Race</div>
+          <div className="info-pill-right">{animal.race}</div>
+        </div>
+
+        <div className="info-pill">
+          <div className="info-pill-left">Date de naissance</div>
+          <div className="info-pill-right">{animal.date_naissance}</div>
+        </div>
+
+        <div className="info-pill">
+          <div className="info-pill-left">Poids</div>
+          <div className="info-pill-right">{animal.poids} kg</div>
+        </div>
+
+        <div className="info-pill">
+          <div className="info-pill-left">Propriétaire</div>
+          <div className="info-pill-right">
+            {proprietaire ? `${proprietaire.prenom} ${proprietaire.nom}` : animal.proprietaire_id}
+          </div>
+        </div>
+
       </div>
 
-      <div style={{ marginTop: 20 }}>
+      {/* ===== Boutons toggle ===== */}
+      <div className="toggle-container">
+        <button
+          className={`toggle-button ${showVisites ? "active" : "inactive"}`}
+          onClick={() => setShowVisites(true)}
+        >
+          Visites médicales
+        </button>
+        <button
+          className={`toggle-button ${!showVisites ? "active" : "inactive"}`}
+          onClick={() => setShowVisites(false)}
+        >
+          Vaccins
+        </button>
+      </div>
+
+      {/* ===== Liste des visites / vaccins ===== */}
+      <div>
         {showVisites ? (
-          <div>
-            <h2>Visites médicales</h2>
-            {animalVisites.length > 0 ? (
-              <ul>
-                {animalVisites.map(v => {
-                  const vet = personnel_veterinaire.find(pv => pv.id === v.veterinaire_id);
-                  return (
-                    <li key={v.id}>
-                      {v.date_visite} - {vet ? `${vet.nom} ${vet.prenom}` : v.veterinaire_id}
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p>Aucune visite enregistrée.</p>
-            )}
-          </div>
+          <>
+          {animalVisites.length > 0 ? (
+            <div className="list-container">
+              {animalVisites.map(v => {
+                const vet = personnel_veterinaire.find(pv => pv.id === v.veterinaire_id);
+                return (
+                  <div key={v.id} className="list-item">
+                    <div className="list-row"><strong>Date :</strong> {v.date_visite}</div>
+                    <div className="list-row"><strong>Vétérinaire :</strong> {vet ? `${vet.prenom} ${vet.nom}` : v.veterinaire_id}</div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <p>Aucune visite enregistrée.</p>
+          )}
+          </>
         ) : (
-          <div>
-            <h2>Vaccins</h2>
-            {animalVaccins.length > 0 ? (
-              <ul>
-                {animalVaccins.map(v => (
-                  <li key={v.id}>
-                    {v.nom} - Administré le {v.date_admin} - Prochain rappel le {v.prochain_rappel}
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p>Aucun vaccin enregistré.</p>
-            )}
-          </div>
+          <>
+          {animalVaccins.length > 0 ? (
+            <div className="list-container">
+              {animalVaccins.map(v => (
+                <div key={v.id} className="list-item">
+                  <div className="list-row"><strong>Nom :</strong> {v.nom}</div>
+                  <div className="list-row"><strong>Administré le :</strong> {v.date_admin}</div>
+                  <div className="list-row"><strong>Prochain rappel :</strong> {v.prochain_rappel}</div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>Aucun vaccin enregistré.</p>
+          )}
+          </>
         )}
       </div>
 
-      <a href="/" style={{ marginTop: 20, display: "inline-block" }}>⬅ Retour</a>
-    </main>
+      <a href="/" className="back-link">⬅ Retour</a>
+    </div>
   );
 }
